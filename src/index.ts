@@ -284,6 +284,9 @@ export class Connection
                 depth: '0'
             }
         }, (e, res, body) => {
+            if(e)
+                return callback(e, false);
+            
             callback(e, res.statusCode <= 400);
         })
     }
